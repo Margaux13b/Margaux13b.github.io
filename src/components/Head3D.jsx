@@ -1,12 +1,13 @@
 import { Canvas, useFrame, useLoader } from '@react-three/fiber';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
-import { Suspense, useMemo, useRef, useState } from 'react';
+import { Suspense, useEffect, useMemo, useRef, useState } from 'react';
 import * as THREE from 'three';
 import '../styles/head3d.scss';
 import ProjectPanel from './ProjectPanel.jsx';
+import IntroPanel from './IntroPanel.jsx';
 import { projects } from '../data/projects.js';
 
-function Tete({ rotation, isProject }) {
+function Tete({ rotation, isProject, x }) { // 🆕 on reçoit "x"
   const gltf = useLoader(GLTFLoader, '/models/tete.glb');
   const ref = useRef();
 
@@ -19,12 +20,14 @@ function Tete({ rotation, isProject }) {
   }, [gltf]);
 
   useFrame((state, delta) => {
-    const cibleX = isProject ? -4 : 0;
-
+    const cibleX = x;
     ref.current.position.x = THREE.MathUtils.damp(ref.current.position.x, cibleX, 4, delta);
 
-    // la rotation, comme avant
     ref.current.rotation.y = THREE.MathUtils.damp(ref.current.rotation.y, rotation, 4, delta);
+
+    const cibleTaille = isProject ? 0.8 : 1;
+    const taille = THREE.MathUtils.damp(ref.current.scale.x, cibleTaille, 4, delta);
+    ref.current.scale.set(taille, taille, taille);
   });
 
   return (
@@ -41,12 +44,24 @@ export default function Head3D() {
   const index = ((step % faces) + faces) % faces;
   const project = index === 0 ? null : projects[index - 1];
 
+  const positionsX = [0, -4.5, -4.5, -5.3];
+
+  useEffect(() => {
+    function quandOnAppuie(event) {
+      if (event.key === 'ArrowRight') setStep((s) => s + 1);
+      if (event.key === 'ArrowLeft') setStep((s) => s - 1);
+    }
+
+    window.addEventListener('keydown', quandOnAppuie);
+    return () => window.removeEventListener('keydown', quandOnAppuie);
+  }, []);
+
   return (
     <div className={project ? 'head3d head3d--project' : 'head3d'}>
       <button
         className="head3d__arrow head3d__arrow--prev"
         type="button"
-        onClick={() => setStep(step - 1)}
+        onClick={() => setStep((s) => s - 1)}
         aria-label="Projet précédent"
       >
         ←
@@ -56,22 +71,34 @@ export default function Head3D() {
         <ambientLight intensity={0.6} />
         <directionalLight position={[5, 5, 5]} intensity={2} />
         <Suspense fallback={null}>
-          <Tete rotation={step * -(Math.PI / 2)} isProject={project !== null} />
+          <Tete
+            rotation={step * -(Math.PI / 2)}
+            isProject={project !== null}
+            x={positionsX[index]}
+          />
         </Suspense>
       </Canvas>
 
       <button
         className="head3d__arrow head3d__arrow--next"
         type="button"
-        onClick={() => setStep(step + 1)}
+        onClick={() => setStep((s) => s + 1)}
         aria-label="Projet suivant"
       >
         →
       </button>
 
-      {project && (
+      <p className="visually-hidden" aria-live="polite">
+        {project ? `Projet ${index} sur ${projects.length} : ${project.title}` : 'Accueil'}
+      </p>
+
+      {project ? (
         <div className="head3d__panel">
           <ProjectPanel key={index} project={project} position={index} total={projects.length} />
+        </div>
+      ) : (
+        <div className="head3d__intro">
+          <IntroPanel />
         </div>
       )}
     </div>

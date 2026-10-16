@@ -30,20 +30,28 @@
     }
   }
 
-  &__panel {
+    &__panel {
+        position: absolute;
+        top: 50%;
+        right: 2%;
+        width: min(48rem, 52%);
+        transform: translateY(-50%);
+    }
+
+  &__intro {
     position: absolute;
-    top: 50%;
-    right: 5%;
-    width: min(30rem, 40%);
-    transform: translateY(-50%);
+    bottom: 2rem;
+    left: 50%;
+    width: min(40rem, 90%);
+    transform: translateX(-50%);
   }
 
-  &--project &__arrow--prev {
+    &--project &__arrow--prev {
     left: 3%;
   }
 
   &--project &__arrow--next {
     right: auto;
-    left: 50%;
+    left: 41%;
   }
 }

@@ -1,20 +1,59 @@
 .dialog {
-  padding: 1.5rem 2rem;
-  border: 1px solid rgb(111 227 255 / 35%);
-  border-radius: 1rem;
-  background: rgb(14 28 34 / 85%);
+  position: relative;
+  padding: 1.75rem 3rem 1.5rem;
+  border-radius: 3rem;
+  background-color: rgb(10 14 12 / 72%);
+  box-shadow: 0 0 2rem 0.75rem rgb(10 14 12 / 50%);
+  backdrop-filter: blur(4px);
   animation: apparition 0.5s ease both;
+
+  &__speaker {
+    position: absolute;
+    top: -0.8rem;
+    left: 2.5rem;
+    margin: 0;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-text);
+    text-shadow: 0 1px 3px rgb(0 0 0 / 80%);
+  }
+
+  &__text {
+    margin: 0 0 0.75rem;
+    font-size: 1.2rem;
+    font-style: italic;
+    font-weight: 600;
+    text-shadow: 0 1px 2px rgb(0 0 0 / 80%);
+  }
+
+  &__highlight {
+    color: var(--color-sheikah);
+    font-weight: 700;
+  }
+
+  &__hint {
+    margin: 0;
+    font-size: 0.85rem;
+    opacity: 0.7;
+
+    kbd {
+      padding: 0 0.4rem;
+      border: 1px solid currentColor;
+      border-radius: 0.3rem;
+      font-family: inherit;
+    }
+  }
 
   &__step {
     margin: 0;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: var(--color-sheikah);
   }
 
   &__title {
-    margin: 0.25rem 0 1rem;
+    margin: 0.25rem 0 0.75rem;
     font-family: var(--font-title);
     color: var(--color-parchment);
   }
@@ -23,24 +62,34 @@
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
+    margin: 0 0 0.5rem;
     padding: 0;
     list-style: none;
 
     li {
-      padding: 0.2rem 0.75rem;
+      padding: 0.15rem 0.75rem;
       border: 1px solid var(--color-gold);
       border-radius: 999px;
       font-size: 0.85rem;
       color: var(--color-gold);
     }
   }
+}
+
+.project-panel {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+
+  &__dialog {
+    flex: 1;
+  }
 
   &__choices {
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
-    gap: 0.5rem;
-    margin: 1.5rem 0 0;
+    gap: 0.6rem;
+    margin: 0;
     padding: 0;
     list-style: none;
   }
