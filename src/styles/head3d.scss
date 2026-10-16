@@ -1,0 +1,32 @@
+.head3d {
+  position: relative;
+  height: 80vh;
+
+  &__arrow {
+    position: absolute;
+    top: 50%;
+    z-index: 1;
+    width: 3.5rem;
+    height: 3.5rem;
+    border: 2px solid var(--color-sheikah);
+    border-radius: 50%;
+    background: transparent;
+    color: var(--color-sheikah);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transform: translateY(-50%);
+    transition: background-color 0.2s;
+
+    &:hover {
+      background-color: rgb(111 227 255 / 15%);
+    }
+
+    &--prev {
+      left: 25%;
+    }
+
+    &--next {
+      right: 25%;
+    }
+  }
+}
