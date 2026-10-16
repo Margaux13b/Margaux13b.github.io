@@ -1,11 +1,146 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import '../styles/dialog.scss'; // on réutilise le style des boîtes de dialogue
 ---
 
 <Layout
   title="Contact · Margaux Blanvilin"
-  description="Me contacter avec mes réseaux et formulaire !"
+  description="Contacter Margaux Blanvilin, développeuse web : coordonnées et formulaire de contact."
 >
   <h1>Contact</h1>
-  <p>Me contacter ici.</p>
+
+  <div class="contact">
+    <section class="dialog contact__dialog" aria-labelledby="titre-message">
+      <p class="dialog__speaker">Margaux</p>
+      <h2 class="visually-hidden" id="titre-message">M'envoyer un message</h2>
+      <p class="dialog__text">
+        Intéressé·e ? Une question ? <strong class="dialog__highlight">Écris-moi</strong> !
+      </p>
+
+      <form class="form" action="https://formspree.io/f/mvkzdloj" method="POST">
+        <div class="form__row">
+          <div class="form__field">
+            <label class="form__label" for="nom">Nom</label>
+            <input class="form__input" id="nom" name="nom" type="text" autocomplete="name" required />
+          </div>
+
+          <div class="form__field">
+            <label class="form__label" for="email">E-mail</label>
+            <input class="form__input" id="email" name="email" type="email" autocomplete="email" required />
+          </div>
+        </div>
+
+        <div class="form__field">
+          <label class="form__label" for="contenu">Message</label>
+          <textarea class="form__input form__input--area" id="contenu" name="message" rows="5" required></textarea>
+        </div>
+
+        <button class="button button--cv form__submit" type="submit">Envoyer</button>
+      </form>
+    </section>
+
+    <section class="contact__links" aria-labelledby="titre-liens">
+      <h2 class="contact__links-title" id="titre-liens">Me retrouver</h2>
+      <ul class="contact__list">
+        <li><a class="button button--choice" href="mailto:blanvilin.margaux.clg@gmail.com">Par e-mail</a></li>
+        <li><a class="button button--choice" href="https://www.linkedin.com/in/blanvilin-margaux-7a54b3242" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a class="button button--choice" href="https://github.com/Margaux13b" target="_blank" rel="noopener">GitHub</a></li>
+      </ul>
+    </section>
+  </div>
 </Layout>
+
+<style lang="scss">
+  .contact {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    max-width: 70rem;
+    margin: 3rem 0 4rem;
+
+    &__dialog {
+      flex: 1;
+    }
+
+    &__links-title {
+      margin: 0 0 1rem;
+      font-family: var(--font-title);
+      font-size: 1.1rem;
+      color: var(--color-parchment);
+    }
+
+    &__list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      margin: 0;
+      padding: 0 0 0 1.5rem;
+      list-style: none;
+    }
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1.5rem;
+
+    &__row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    &__field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    &__label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-gold);
+    }
+
+    &__input {
+      padding: 0.6rem 1.1rem;
+      border: 1px solid rgb(246 242 232 / 20%);
+      border-radius: 999px;
+      background-color: rgb(255 255 255 / 6%);
+      color: var(--color-text);
+      font: inherit;
+
+      &:focus {
+        border-color: var(--color-sheikah);
+        outline: none;
+        box-shadow: 0 0 0 3px rgb(111 227 255 / 25%);
+      }
+
+      &--area {
+        border-radius: 1.25rem;
+        resize: vertical;
+      }
+    }
+
+    &__submit {
+      align-self: flex-end;
+      min-width: auto;
+      margin-top: 0.5rem;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .contact {
+      flex-direction: column;
+      align-items: stretch;
+      margin-top: 2rem;
+    }
+
+    .form__row {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
