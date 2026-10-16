@@ -2,6 +2,11 @@
   position: relative;
   height: 80vh;
 
+  &__scene {
+    position: relative;
+    height: 100%;
+  }
+
   &__arrow {
     position: absolute;
     top: 50%;
@@ -30,13 +35,13 @@
     }
   }
 
-    &__panel {
-        position: absolute;
-        top: 50%;
-        right: 2%;
-        width: min(48rem, 52%);
-        transform: translateY(-50%);
-    }
+  &__panel {
+    position: absolute;
+    top: 50%;
+    right: 2%;
+    width: min(48rem, 52%);
+    transform: translateY(-50%);
+  }
 
   &__intro {
     position: absolute;
@@ -46,12 +51,51 @@
     transform: translateX(-50%);
   }
 
-    &--project &__arrow--prev {
+  &--project &__arrow--prev {
     left: 3%;
   }
 
   &--project &__arrow--next {
     right: auto;
     left: 41%;
+  }
+
+  @media (max-width: 900px) {
+    height: auto;
+
+    &__scene {
+      height: 55vh;
+      transition: height 0.6s ease;
+      touch-action: pan-y;
+    }
+
+    &--project &__scene {
+      height: 35vh;
+    }
+
+    &__arrow--prev,
+    &--project &__arrow--prev {
+      left: 0;
+    }
+
+    &__arrow--next,
+    &--project &__arrow--next {
+      right: 0;
+      left: auto;
+    }
+
+    &__panel,
+    &__intro {
+      position: static;
+      width: auto;
+      margin: 1rem 0 2rem;
+      transform: none;
+    }
+
+        &__arrow {
+      width: 2.5rem;
+      height: 2.5rem;
+      font-size: 1.1rem;
+    }
   }
 }
