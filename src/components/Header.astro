@@ -1,0 +1,21 @@
+---
+import Menu from './Menu.astro';
+---
+
+<header class="header">
+  <a class="button button--cv" href="/cv-margaux.pdf" download>
+    Télécharger mon CV (PDF)
+  </a>
+  <Menu />
+</header>
+
+<style lang="scss">
+  .header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 2rem;
+  }
+</style>

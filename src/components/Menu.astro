@@ -1,6 +1,59 @@
-<nav aria-label="Navigation principale">
-  <ul>
-    <li><a href="/">Accueil</a></li>
-    <li><a href="/contact">Contact</a></li>
+---
+const currentPath = Astro.url.pathname;
+const links = [
+  { href: '/', label: 'Accueil' },
+  { href: '/projets', label: 'Projets' },
+  { href: '/parcours', label: 'Parcours' },
+  { href: '/experiences', label: 'Expériences' },
+  { href: '/contact', label: 'Contact' },
+];
+---
+
+<nav class="menu" aria-label="Navigation principale">
+  <ul class="menu__list">
+    {links.map((link) => (
+      <li class="menu__item">
+        <a
+          class="menu__link"
+          href={link.href}
+          aria-current={currentPath === link.href || currentPath === link.href + '/' ? 'page' : undefined}
+        >
+          {link.label}
+        </a>
+      </li>
+    ))}
   </ul>
 </nav>
+
+<style lang="scss">
+  .menu {
+
+    &__list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    &__link {
+      padding: 0.25rem 0;
+      border-bottom: 2px solid transparent;
+      color: var(--color-text);
+      font-weight: 600;
+      text-decoration: none;
+      transition: color 0.2s, border-color 0.2s;
+
+      &:hover {
+        color: var(--color-gold);
+        border-bottom-color: var(--color-gold);
+      }
+
+      &[aria-current='page'] {
+        color: var(--color-sheikah);
+        border-bottom-color: var(--color-sheikah);
+      }
+    }
+  }
+</style>
