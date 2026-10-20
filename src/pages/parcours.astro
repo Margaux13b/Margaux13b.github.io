@@ -1,11 +1,67 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import portrait from '../assets/portrait.jpg';
+import QuestLog from '../components/QuestLog.jsx';
 ---
 
 <Layout
   title="Parcours · Margaux Blanvilin"
-  description="Voici mon parcours en developpement web qui m'a permis de progresser !"
+  description="Voici mon parcours en développement web qui m'a permis de progresser !"
 >
-  <h1>Parcours</h1>
-  <p>Bientôt mon parcours ici.</p>
+  <div class="page page--wide">
+    <h1>Parcours</h1>
+
+    <section class="card about" aria-labelledby="qui-je-suis">
+      <Image class="about__photo" src={portrait} alt="Portrait de Margaux Blanvilin" width={320} />
+      <div>
+        <h2 class="card__title" id="qui-je-suis">Qui je suis</h2>
+        <p>Je suis une personne curieuse, qui recherche toujours de nouvelles connaissances à apprendre. Après un BTS Tourisme, je me suis réorientée vers le développement web, un métier que je trouve stimulant et qui laisse libre cours à ma créativité.</p>
+      </div>
+    </section>
+
+    <section class="journal" aria-labelledby="journal">
+      <h2 class="journal__title" id="journal">Journal d'aventure</h2>
+      <QuestLog client:load />
+    </section>
+
+    <div class="page__actions">
+      <a class="button button--cv" href="/projets">Voir mes projets</a>
+      <a class="button button--cv" href="/contact">Me contacter</a>
+    </div>
+  </div>
 </Layout>
+
+<style lang="scss">
+  .about {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+
+    &__photo {
+      flex-shrink: 0;
+      width: 12rem;
+      height: 12rem;
+      border: 3px solid var(--color-gold);
+      border-radius: 50%;
+      object-fit: cover;
+    }
+  }
+
+  .journal {
+    margin-top: 3rem;
+
+    &__title {
+      font-family: var(--font-title);
+      text-align: center;
+      color: var(--color-parchment);
+    }
+  }
+
+  @media (max-width: 900px) {
+    .about {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+</style>

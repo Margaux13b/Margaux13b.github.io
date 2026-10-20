@@ -1,102 +1,28 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { projects } from '../data/projects.js';
+import Compendium from '../components/Compendium.jsx';
 ---
 
 <Layout
   title="Projets · Margaux Blanvilin"
-  description="Mes projets avec : contexte, objectifs, compétences et liens."
+  description="Les projets de Margaux Blanvilin : contexte, objectifs, compétences et liens."
 >
-  <h1>Mes projets</h1>
-  <p class="intro">Chaque projet avec son contexte, son objectif et ce qu'il m'a appris.</p>
+  <div class="page page--wide">
+    <h1>Mes projets</h1>
+    <p class="intro">Bienvenue dans mon compendium ! Sélectionne un projet pour en savoir plus !</p>
 
-  {projects.map((project) => (
-    <article class="card">
-      <h2 class="card__title">{project.title}</h2>
+    <Compendium client:load />
 
-      <h3 class="card__label">Contexte</h3>
-      <p>{project.context}</p>
-
-      <h3 class="card__label">Objectif</h3>
-      <p>{project.objective}</p>
-
-      <h3 class="card__label">Ce que j'ai appris</h3>
-      <p>{project.learned}</p>
-
-      <ul class="card__skills">
-        {project.skills.map((skill) => <li>{skill}</li>)}
-      </ul>
-
-      <ul class="card__links">
-        <li><a class="button button--choice" href={project.live} target="_blank" rel="noopener">Voir le projet</a></li>
-        <li><a class="button button--choice" href={project.source} target="_blank" rel="noopener">Code source</a></li>
-        <li><a class="button button--choice" href={project.details}>En savoir plus (PDF)</a></li>
-      </ul>
-    </article>
-  ))}
+    <div class="page__actions">
+      <a class="button button--cv" href="/parcours">Mon parcours</a>
+      <a class="button button--cv" href="/contact">Me contacter</a>
+    </div>
+  </div>
 </Layout>
 
-<style lang="scss">
+<style>
   .intro {
-    max-width: 40rem;
+    margin-bottom: 2rem;
     opacity: 0.8;
-  }
-
-  .card {
-    max-width: 50rem;
-    margin: 2rem 0;
-    padding: 2rem 2.5rem;
-    border-radius: 1.5rem;
-    background-color: rgb(10 14 12 / 72%);
-
-    &__title {
-      margin: 0 0 1rem;
-      font-family: var(--font-title);
-      color: var(--color-parchment);
-    }
-
-    &__label {
-      margin: 1.25rem 0 0.25rem;
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--color-gold);
-    }
-
-    p {
-      margin: 0;
-    }
-
-    &__skills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin: 1.5rem 0 0;
-      padding: 0;
-      list-style: none;
-
-      li {
-        padding: 0.15rem 0.75rem;
-        border: 1px solid var(--color-gold);
-        border-radius: 999px;
-        font-size: 0.85rem;
-        color: var(--color-gold);
-      }
-    }
-
-    &__links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem 2.5rem;
-      margin: 1.5rem 0 0;
-      padding: 0 0 0 1.5rem;
-      list-style: none;
-    }
-  }
-
-  @media (max-width: 900px) {
-    .card {
-      padding: 1.5rem;
-    }
   }
 </style>

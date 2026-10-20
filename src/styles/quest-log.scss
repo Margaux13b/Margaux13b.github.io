@@ -1,0 +1,141 @@
+.quest-log {
+  display: grid;
+  grid-template-columns: minmax(16rem, 1fr) 1.4fr;
+  gap: 2rem;
+  align-items: center;
+
+  &__list ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin: 0 0 1.5rem;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__group {
+    margin: 0 0 0.75rem;
+    font-size: 0.8rem;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-gold);
+  }
+
+  &__detail {
+    display: flex;
+    flex-direction: column;
+    min-height: 22rem;
+    padding: 1.5rem 2rem 1rem;
+    border: 1px solid rgb(246 242 232 / 25%);
+    border-radius: 0.4rem;
+    background-color: rgb(10 14 12 / 80%);
+    animation: quete-apparition 0.4s ease both;
+  }
+
+  &__title {
+    margin: 0;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgb(246 242 232 / 25%);
+    font-family: var(--font-body);
+    font-size: 1.5rem;
+    font-style: italic;
+    color: var(--color-text);
+  }
+
+  &__place {
+    margin: 0.4rem 0 1rem;
+    font-weight: 600;
+    text-align: right;
+    color: #c2dd5f;
+  }
+
+  &__text {
+    font-style: italic;
+  }
+
+  &__stamp {
+    align-self: center;
+    margin: auto 0 1rem;
+    font-family: var(--font-title);
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--color-gold);
+    text-shadow: 0 0 18px rgb(226 192 107 / 60%); // effet lumineux
+
+    &--en-cours {
+      color: var(--color-sheikah);
+      text-shadow: 0 0 18px rgb(111 227 255 / 60%);
+    }
+  }
+
+  &__counter {
+    margin: 0;
+    padding-top: 0.5rem;
+    border-top: 1px solid rgb(246 242 232 / 25%);
+    font-size: 0.85rem;
+    text-align: right;
+  }
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.quest {
+  display: grid;
+  grid-template-columns: 2rem 1fr;
+  align-items: center;
+  column-gap: 0.75rem;
+  width: 100%;
+  padding: 0.6rem 1rem;
+  border: 2px solid rgb(246 242 232 / 15%);
+  border-radius: 0.4rem;
+  background-color: rgb(10 14 12 / 70%);
+  color: var(--color-text);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.2s, box-shadow 0.2s;
+
+  &__icon {
+    grid-row: span 2;
+    font-size: 1.2rem;
+    text-align: center;
+    color: var(--color-gold);
+  }
+
+  &__title {
+    font-size: 1.05rem;
+    font-style: italic;
+    font-weight: 700;
+  }
+
+  &__place {
+    font-size: 0.8rem;
+    color: #c2dd5f;
+  }
+
+  &:hover {
+    border-color: rgb(246 242 232 / 45%);
+  }
+
+
+  &--active,
+  &:focus-visible {
+    border-color: var(--color-text);
+    outline: none;
+    box-shadow: 0 0 12px rgb(246 242 232 / 30%);
+  }
+}
+
+@keyframes quete-apparition {
+  from {
+    opacity: 0;
+    transform: translateX(1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
