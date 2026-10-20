@@ -1,0 +1,63 @@
+---
+const coins = ['top-left', 'top-right', 'bottom-left', 'bottom-right'];
+---
+
+<div class="frame" aria-hidden="true">
+  {coins.map((coin) => (
+    <svg class={`frame__corner frame__corner--${coin}`} viewBox="0 0 120 120">
+      <path d="M120 14 H46 C26 14 14 26 14 46 V120" />
+      <path d="M34 62 a14 14 0 1 1 14 -14 a9 9 0 1 0 -9 9 a4 4 0 1 1 4 -4" />
+      <circle cx="62" cy="34" r="5" />
+    </svg>
+  ))}
+</div>
+
+<style lang="scss">
+  .frame {
+    position: fixed;
+    inset: 0;
+    z-index: 10;
+    pointer-events: none;
+
+    &__corner {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      fill: none;
+      stroke: #c9a86a;
+      stroke-width: 5;
+      stroke-linecap: round;
+      filter: drop-shadow(0 0 6px rgb(63 180 255 / 90%));
+
+      &--top-left {
+        top: 0;
+        left: 0;
+      }
+
+      &--top-right {
+        top: 0;
+        right: 0;
+        transform: scaleX(-1);
+      }
+
+      &--bottom-left {
+        bottom: 0;
+        left: 0;
+        transform: scaleY(-1);
+      }
+
+      &--bottom-right {
+        bottom: 0;
+        right: 0;
+        transform: scale(-1, -1);
+      }
+    }
+
+    @media (max-width: 900px) {
+      &__corner {
+        width: 50px;
+        height: 50px;
+      }
+    }
+  }
+</style>

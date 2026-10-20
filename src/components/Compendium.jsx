@@ -65,6 +65,7 @@ export default function Compendium() {
 
           <ul className="compendium__links">
             <li><a className="button button--choice" href={projet.live} target="_blank" rel="noopener">Voir le projet</a></li>
+            <li><a className="button button--choice" href={projet.source} target="_blank" rel="noopener">Code source</a></li>
             <li><a className="button button--choice" href={projet.details}>En savoir plus (PDF)</a></li>
           </ul>
         </article>

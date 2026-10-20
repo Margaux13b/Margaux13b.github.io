@@ -1,6 +1,8 @@
 ---
-import Header from '../components/Header.astro';
-import '../styles/global.scss';
+import Header from "../components/Header.astro";
+import "../styles/global.scss";
+import Particles from '../components/Particles.astro';
+import SheikahFrame from "../components/SheikahFrame.astro";
 const { title, description } = Astro.props;
 ---
 
@@ -14,14 +16,20 @@ const { title, description } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 		<meta name="description" content={description} />
-			<link rel="preconnect" href="https://fonts.googleapis.com" />
-  			<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-			<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Nunito:ital,wght@0,400;0,600;0,700;1,600;1,700&display=swap" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			rel="stylesheet"
+			href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Nunito:ital,wght@0,400;0,600;0,700;1,600;1,700&display=swap"
+		/>
 	</head>
 	<body>
-  		<Header />
-  		<main class="main">
-    		<slot />
-  		</main>
+		<div class="backdrop backdrop--sheikah" aria-hidden="true"></div>
+		<Particles />
+		<SheikahFrame />
+		<Header />
+		<main class="main">
+			<slot />
+		</main>
 	</body>
 </html>

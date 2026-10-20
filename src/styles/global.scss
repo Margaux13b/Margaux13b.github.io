@@ -123,3 +123,19 @@ a {
     max-width: 70rem;
   }
 }
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: -2; 
+  background-color: var(--color-night);
+
+  &--sheikah {
+    background:
+      radial-gradient(ellipse at center, transparent 40%, rgb(0 0 0 / 65%)),                          // assombrit les bords
+      repeating-linear-gradient(90deg, rgb(111 227 255 / 3%) 0 1px, transparent 1px 5px),            // fines lignes verticales
+      repeating-radial-gradient(circle at 15% 25%, transparent 0 22px, rgb(111 227 255 / 4%) 22px 23px), // ondes
+      repeating-radial-gradient(circle at 80% 70%, transparent 0 30px, rgb(111 227 255 / 4%) 30px 31px), // ondes
+      linear-gradient(to bottom, #0b1a26, #08121b);                                                    // fond bleu nuit
+  }
+}

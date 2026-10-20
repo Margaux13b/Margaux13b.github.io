@@ -1,33 +1,38 @@
 ---
 const currentPath = Astro.url.pathname;
 const links = [
-  { href: '/', label: 'Accueil' },
-  { href: '/projets', label: 'Projets' },
-  { href: '/parcours', label: 'Parcours' },
-  { href: '/experiences', label: 'Expériences' },
-  { href: '/contact', label: 'Contact' },
+  { href: "/", label: "Accueil" },
+  { href: "/projets", label: "Projets" },
+  { href: "/parcours", label: "Parcours" },
+  { href: "/experiences", label: "Expériences" },
+  { href: "/contact", label: "Contact" },
 ];
 ---
 
 <nav class="menu" aria-label="Navigation principale">
   <ul class="menu__list">
-    {links.map((link) => (
-      <li class="menu__item">
-        <a
-          class="menu__link"
-          href={link.href}
-          aria-current={currentPath === link.href || currentPath === link.href + '/' ? 'page' : undefined}
-        >
-          {link.label}
-        </a>
-      </li>
-    ))}
+    {
+      links.map((link) => (
+        <li class="menu__item">
+          <a
+            class="menu__link"
+            href={link.href}
+            aria-current={
+              currentPath === link.href || currentPath === link.href + "/"
+                ? "page"
+                : undefined
+            }
+          >
+            {link.label}
+          </a>
+        </li>
+      ))
+    }
   </ul>
 </nav>
 
 <style lang="scss">
   .menu {
-
     &__list {
       display: flex;
       flex-wrap: wrap;
@@ -40,23 +45,28 @@ const links = [
     &__link {
       padding: 0.25rem 0;
       border-bottom: 2px solid transparent;
-      color: var(--color-text);
+      color: #c8f1ff;
       font-weight: 600;
       text-decoration: none;
-      transition: color 0.2s, border-color 0.2s;
+      text-shadow: 0 0 8px rgb(111 227 255 / 45%);
+      transition:
+        color 0.2s,
+        text-shadow 0.2s,
+        border-color 0.2s;
 
       &:hover {
-        color: var(--color-gold);
-        border-bottom-color: var(--color-gold);
+        color: #fff;
+        text-shadow: 0 0 12px rgb(111 227 255 / 90%);
       }
 
-      &[aria-current='page'] {
+      &[aria-current="page"] {
         color: var(--color-sheikah);
         border-bottom-color: var(--color-sheikah);
+        text-shadow: 0 0 14px rgb(111 227 255 / 100%);
       }
     }
-    
-        @media (max-width: 900px) {
+
+    @media (max-width: 900px) {
       &__list {
         justify-content: center;
         gap: 0.75rem;

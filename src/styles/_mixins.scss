@@ -1,0 +1,17 @@
+@mixin corner-brackets($size: 14px, $color: #fff) {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  background:
+    linear-gradient($color, $color) top left / $size 2px,
+    linear-gradient($color, $color) top left / 2px $size,
+    linear-gradient($color, $color) top right / $size 2px,
+    linear-gradient($color, $color) top right / 2px $size,
+    linear-gradient($color, $color) bottom left / $size 2px,
+    linear-gradient($color, $color) bottom left / 2px $size,
+    linear-gradient($color, $color) bottom right / $size 2px,
+    linear-gradient($color, $color) bottom right / 2px $size;
+  background-repeat: no-repeat;
+  filter: drop-shadow(0 0 4px rgb(255 255 255 / 70%));
+  pointer-events: none;
+}

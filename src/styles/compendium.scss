@@ -125,6 +125,10 @@
     margin: 1.5rem 0 0.5rem;
     padding: 0 0 0 1.5rem;
     list-style: none;
+
+    .button {
+        min-width: auto;
+      }
   }
 
   &__footer {
