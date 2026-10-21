@@ -1,6 +1,16 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Souvenirs from '../components/Souvenirs.jsx';
+import { getImage } from 'astro:assets';          // 🆕
+import { souvenirs } from '../data/souvenirs.js';  // 🆕
+
+const souvenirsOptimises = await Promise.all(
+  souvenirs.map(async (s) => ({
+    ...s,
+    vignette: (await getImage({ src: s.image, width: 500, format: 'webp' })).src,
+    grande: (await getImage({ src: s.image, width: 900, format: 'webp' })).src,
+  }))
+);
 ---
 
 <Layout
@@ -11,7 +21,7 @@ import Souvenirs from '../components/Souvenirs.jsx';
     <h1>Expériences</h1>
     <p class="intro">Avant le code, il y a eu d'autres aventures. Sélectionne un souvenir pour le revivre.</p>
 
-    <Souvenirs client:load />
+    <Souvenirs client:load souvenirs={souvenirsOptimises} />
 
     <div class="page__actions">
       <a class="button button--cv" href="/projets">Voir mes projets</a>

@@ -1,6 +1,16 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Compendium from '../components/Compendium.jsx';
+import { getImage } from 'astro:assets';
+import { projects } from '../data/projects.js';
+
+const projetsOptimises = await Promise.all(
+  projects.map(async (p) => ({
+    ...p,
+    vignette: (await getImage({ src: p.image, width: 300, format: 'webp' })).src,
+    grande: (await getImage({ src: p.image, width: 1000, format: 'webp' })).src,
+  }))
+);
 ---
 
 <Layout
@@ -11,7 +21,7 @@ import Compendium from '../components/Compendium.jsx';
     <h1>Mes projets</h1>
     <p class="intro">Bienvenue dans mon compendium ! Sélectionne un projet pour en savoir plus !</p>
 
-    <Compendium client:load />
+    <Compendium client:load projects={projetsOptimises} />
 
     <div class="page__actions">
       <a class="button button--cv" href="/parcours">Mon parcours</a>

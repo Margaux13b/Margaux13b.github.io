@@ -1,12 +1,11 @@
 import { useState } from 'react';
-import { projects } from '../data/projects.js';
 import '../styles/compendium.scss';
 
 function numero(i) {
   return String(i + 1).padStart(3, '0');
 }
 
-export default function Compendium() {
+export default function Compendium({ projects }) {
   const [selection, setSelection] = useState(0);
   const projet = projects[selection];
 
@@ -29,7 +28,8 @@ export default function Compendium() {
                 onClick={() => setSelection(i)}
               >
                 <span className="entry__frame">
-                  <img className="entry__image" src={p.image.src} alt="" />
+                  {/* 🆕 la petite version optimisée */}
+                  <img className="entry__image" src={p.vignette} alt="" loading="lazy" />
                   <span className="entry__number">{numero(i)}</span>
                 </span>
                 <span className="entry__name">{p.title}</span>
@@ -41,7 +41,8 @@ export default function Compendium() {
         {/* À droite : la fiche */}
         <article className="compendium__detail" key={projet.title} aria-live="polite">
           <div className="compendium__picture">
-            <img src={projet.image.src} alt={`Capture d'écran du projet ${projet.title}`} />
+            {/* 🆕 la grande version optimisée */}
+            <img src={projet.grande} alt={`Capture d'écran du projet ${projet.title}`} />
           </div>
 
           <p className="compendium__number">N° {numero(selection)} · {projet.type}</p>

@@ -1,8 +1,7 @@
 import { useState } from 'react';
-import { souvenirs } from '../data/souvenirs.js';
 import '../styles/souvenirs.scss';
 
-export default function Souvenirs() {
+export default function Souvenirs({ souvenirs }) {
   const [selection, setSelection] = useState(0);
   const souvenir = souvenirs[selection];
 
@@ -24,7 +23,8 @@ export default function Souvenirs() {
               onClick={() => setSelection(i)}
             >
               <span className="memory__frame">
-                <img className="memory__image" src={s.image.src} alt="" />
+                {/* 🆕 la petite version optimisée */}
+                <img className="memory__image" src={s.vignette} alt="" loading="lazy" />
               </span>
               <span className="memory__title">{s.titre}</span>
               <span className="memory__date">{s.date}</span>
@@ -36,7 +36,8 @@ export default function Souvenirs() {
       {/* Le souvenir sélectionné */}
       <article className="souvenirs__detail" key={souvenir.id} aria-live="polite">
         <div className="souvenirs__picture">
-          <img src={souvenir.image.src} alt={souvenir.alt} />
+          {/* 🆕 la grande version optimisée */}
+          <img src={souvenir.grande} alt={souvenir.alt} />
         </div>
 
         <div>
