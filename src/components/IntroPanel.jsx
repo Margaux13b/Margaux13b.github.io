@@ -3,7 +3,7 @@ import '../styles/dialog.scss';
 export default function IntroPanel() {
   return (
     <div className="dialog">
-      <p className="dialog__speaker">Margaux</p>
+      <p className="dialog__speaker">Margaux Blanvilin</p>
       <p className="dialog__text">
         Bienvenue sur mon <strong className="dialog__highlight">portfolio</strong> ! Je t'invite à découvrir mes projets d'études !
       </p>

@@ -74,6 +74,11 @@
       color: var(--color-gold);
     }
   }
+
+    &__role {
+    font-weight: 400;
+    opacity: 0.7;
+  }
 }
 
 .project-panel {
