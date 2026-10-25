@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Margaux's Resume</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <input type="radio" name="nav" id="tab-cover" class="tab-input" checked>
+    <input type="radio" name="nav" id="tab-who" class="tab-input">
+    <input type="radio" name="nav" id="tab-about" class="tab-input">
+    <input type="radio" name="nav" id="tab-studies" class="tab-input">
+    <input type="radio" name="nav" id="tab-experiences" class="tab-input">
+    <input type="radio" name="nav" id="tab-skills" class="tab-input">
+    <input type="radio" name="nav" id="tab-contacts" class="tab-input">
+
+    <nav class="nav-list">
+        <label for="tab-cover">Cover</label>
+        <label for="tab-who">Who am I?</label>
+        <label for="tab-about">About me</label>
+        <label for="tab-studies">My studies</label>
+        <label for="tab-experiences">My experiences</label>
+        <label for="tab-skills">My skills</label>
+        <label for="tab-contacts">Contacts</label>
+    </nav>
+
+    <main class="book">
+
+        <div class="book-shadow"></div>
+
+        <div class="cover">
+
+            <div class="cover-spine"></div>
+
+            <div class="cover-decoration decoration-star">✦</div>
+            <div class="cover-decoration decoration-flower">✿</div>
+            <div class="cover-decoration decoration-heart">♡</div>
+
+            <div class="cover-inner">
+                <p class="cover-small">MY PERSONAL</p>
+                <h1 class="cover-title">
+                    Margaux's
+                    <span>Resume</span>
+                </h1>
+                <p class="cover-subtitle">
+                    studies • experiences • skills
+                </p>
+                <label class="cover-button" for="tab-who">
+                    Open the book
+                </label>
+            </div>
+
+            <div class="cover-corner"></div>
+
+        </div>
+
+        <div class="pages">
+
+            <div class="page-stack page-stack-1"></div>
+            <div class="page-stack page-stack-2"></div>
+
+            <section id="section-who" class="page">
+
+                <div class="who-layout">
+
+                    <div class="who-camera-area">
+                        <img src="assets/img/etoile_jaune.png" alt="" class="sticker who-star-top-camera">
+
+                        <div class="camera-wrapper">
+                            <img src="assets/img/camera.png" alt="Appareil photo de Margaux" class="who-camera">
+                        </div>
+                    </div>
+
+                    <div class="who-content-area">
+
+                        <div class="title-with-sticker who-title-wrap">
+                            <h2 class="curved-title">Who am I?</h2>
+                            <img src="assets/img/papillon.png" alt="" class="sticker-next-to-title">
+                        </div>
+
+                        <div class="who-note">
+                            <img src="assets/img/pagedechiree.png" alt="" class="torn-paper-image">
+
+                            <img src="assets/img/etoile_rose.png" alt="" class="sticker-on-paper who-star-pink">
+                            <img src="assets/img/noireaudes.png" alt="" class="sticker-on-paper who-noireaudes-right">
+
+                            <div class="who-note-text">
+                                <p>
+                                    Hi, I'm Margaux. I'm 22 years old and I was born in Bordeaux, France.
+                                </p>
+                                <p>
+                                    I'm pretty much a joyful person. I love to learn new things and discover the world around me.
+                                </p>
+                                <p>
+                                    I'm currently looking for a sandwich course for my studies. I'm learning web development and coding at Epitech, in Bordeaux.
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <label for="tab-about" class="next-page" aria-label="Next page">→</label>
+            </section>
+
+            <section id="section-about" class="page">
+
+                <div class="title-with-sticker about-title-wrap">
+                    <img src="assets/img/bouledisco.png" alt="" class="sticker-disco-title">
+                    <h2>About me</h2>
+                </div>
+
+                <img src="assets/img/papillon.png" alt="" class="sticker sticker-about-papillon">
+
+                <div class="about-layout">
+
+                    <svg class="thread-overlay" viewBox="0 0 700 360" preserveAspectRatio="none">
+                        <line x1="180" y1="50" x2="350" y2="160" stroke="#876954" stroke-width="2" stroke-dasharray="5 5" />
+                        <line x1="165" y1="185" x2="330" y2="185" stroke="#876954" stroke-width="2" stroke-dasharray="5 5" />
+                        <line x1="535" y1="65" x2="370" y2="155" stroke="#876954" stroke-width="2" stroke-dasharray="5 5" />
+                        <line x1="540" y1="195" x2="380" y2="190" stroke="#876954" stroke-width="2" stroke-dasharray="5 5" />
+                        <line x1="520" y1="285" x2="370" y2="230" stroke="#876954" stroke-width="2" stroke-dasharray="5 5" />
+                    </svg>
+
+                    <div class="about-photo-wrapper">
+                        <img src="assets/img/pagedechiree.png" alt="" class="about-bg-torn">
+                        <img src="assets/img/photo-fullbody.png" alt="Photo de Margaux en pied" class="about-photo">
+                        <img src="assets/img/heart.png" alt="" class="sticker-about-heart-corner">
+                    </div>
+
+                    <div class="interest-stickers">
+                        <span class="interest-sticker interest-1">♡ Travelling</span>
+                        <span class="interest-sticker interest-2">★ Sports</span>
+                        <span class="interest-sticker interest-3">✈ Cinema buff</span>
+                        <span class="interest-sticker interest-4">✦ Cool outfits</span>
+                        <span class="interest-sticker interest-5">☀ Discovering</span>
+                    </div>
+
+                </div>
+
+                <label for="tab-studies" class="next-page" aria-label="Next page">→</label>
+            </section>
+
+            <section id="section-studies" class="page">
+
+                <h2>My studies</h2>
+
+                <div class="studies-timeline">
+
+                    <div class="timeline-line"></div>
+
+                    <div class="timeline-step step-1">
+                        <article class="timeline-card">
+                            <img src="assets/img/sunflower.png" alt="" class="sticker-sunflower-stamp">
+                            <span class="highlight-date">2022</span>
+                            <h3>General Baccalauréat</h3>
+                            <p class="location">Lycée des Graves, Gradignan</p>
+                        </article>
+                    </div>
+                    <img src="assets/img/etoile_jaune.png" alt="" class="timeline-star-node star-1">
+
+                    <div class="timeline-step step-2">
+                        <article class="timeline-card">
+                            <span class="highlight-date">2024</span>
+                            <h3>Tourism BTS</h3>
+                            <p class="location">Formasup Campus, Bordeaux</p>
+                        </article>
+                    </div>
+                    <img src="assets/img/etoile_rose.png" alt="" class="timeline-star-node star-2">
+
+                    <div class="timeline-step step-3">
+                        <article class="timeline-card">
+                            <img src="assets/img/feuille1.png" alt="" class="sticker-leaves-corner">
+                            <span class="highlight-date">2026</span>
+                            <h3>Pre-MSC</h3>
+                            <p class="location">Epitech, Bordeaux</p>
+                        </article>
+                    </div>
+                    <img src="assets/img/etoile_jaune.png" alt="" class="timeline-star-node star-3">
+
+                </div>
+
+                <label for="tab-experiences" class="next-page" aria-label="Next page">→</label>
+            </section>
+
+            <section id="section-experiences" class="page">
+
+                <h2>My experiences</h2>
+
+                <img src="assets/img/orange.png" alt="" class="sticker sticker-exp-orange">
+
+                <div class="experience-board">
+
+                    <article class="experience-card exp-card-1">
+                        <span class="paper-tape card-tape"></span>
+                        <img src="assets/img/heart.png" alt="" class="sticker-exp-heart-corner">
+
+                        <span class="highlight-date">Jun - Jul 2022</span>
+                        <h3 class="job-title">School Custodian</h3>
+                        <p class="location">Lou Pin Bert, Le Barp</p>
+                        <ul>
+                            <li>Meal preparation</li>
+                            <li>Cleaning the kitchen</li>
+                            <li>Cleaning classrooms</li>
+                            <li>Serving meals</li>
+                        </ul>
+                    </article>
+
+                    <article class="experience-card exp-card-2">
+                        <span class="paper-tape card-tape"></span>
+                        <span class="highlight-date">Aug 2022 – Jun 2024</span>
+                        <h3 class="job-title">Hotel Receptionist</h3>
+                        <p class="location">Brit Hotel Bordeaux Arena</p>
+                        <ul>
+                            <li>Inventory management</li>
+                            <li>Welcoming guests</li>
+                            <li>Breakfast service</li>
+                            <li>Event management</li>
+                        </ul>
+                    </article>
+
+                    <article class="experience-card exp-card-3">
+                        <span class="paper-tape card-tape"></span>
+                        <span class="highlight-date">Dec 2024 – Jan 2026</span>
+                        <h3 class="job-title">Food Service Worker</h3>
+                        <p class="location">CHU Pellegrin, Bordeaux</p>
+                        <ul>
+                            <li>Assembly line work</li>
+                            <li>Hygiene protocols</li>
+                            <li>Cleaning premises</li>
+                            <li>Meal trays inspection</li>
+                        </ul>
+                    </article>
+
+                </div>
+
+                <label for="tab-skills" class="next-page" aria-label="Next page">→</label>
+            </section>
+
+            <section id="section-skills" class="page">
+
+                <div class="title-with-sticker skills-title-wrap">
+                    <h2>My skills</h2>
+                    <img src="assets/img/point_exclamation.png" alt="" class="sticker-exclamation-title">
+                </div>
+
+                <div class="skills-grid">
+
+                    <article class="paper-card skill-card personality-card">
+                        <div class="paper-tape card-tape"></div>
+                        <img src="assets/img/etoile_rose.png" alt="" class="sticker-on-paper skill-star">
+                        <img src="assets/img/sunflower.png" alt="" class="sticker-on-paper skill-sunflower-corner">
+
+                        <h3>Personality</h3>
+                        <ul>
+                            <li>Energetic</li>
+                            <li>Organized</li>
+                            <li>Creative</li>
+                            <li>Team player</li>
+                            <li>Curious</li>
+                        </ul>
+                    </article>
+
+                    <article class="paper-card skill-card ability-card">
+                        <div class="paper-tape card-tape"></div>
+                        <img src="assets/img/noireaudes.png" alt="" class="sticker-on-paper skill-noireaudes-corner">
+
+                        <h3>Ability</h3>
+                        <ul>
+                            <li>Office Pack</li>
+                            <li>Amadeus</li>
+                            <li>Python</li>
+                            <li>HTML / CSS</li>
+                        </ul>
+                    </article>
+
+                </div>
+
+                <div class="languages-note-wrapper">
+                    <img src="assets/img/note.png" alt="" class="note-paper-bg">
+
+                    <div class="languages-container">
+                        <div class="language-item">
+                            <span class="flag" role="img" aria-label="United Kingdom">🇬🇧</span>
+                            <div class="dots-rating">
+                                <span class="dot active"></span>
+                                <span class="dot active"></span>
+                                <span class="dot active"></span>
+                                <span class="dot active"></span>
+                                <span class="dot"></span>
+                            </div>
+                        </div>
+
+                        <div class="language-item">
+                            <span class="flag" role="img" aria-label="Spain">🇪🇸</span>
+                            <div class="dots-rating">
+                                <span class="dot active"></span>
+                                <span class="dot active"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <label for="tab-contacts" class="next-page" aria-label="Next page">→</label>
+            </section>
+
+            <section id="section-contacts" class="page">
+
+                <h2>Contacts</h2>
+
+                <img src="assets/img/lilys.png" alt="" class="sticker sticker-contact-lilys">
+
+                <div class="contacts-layout">
+
+                    <aside class="paper-card contact-info">
+                        <div class="paper-tape card-tape"></div>
+                        <img src="assets/img/etoile_rose.png" alt="" class="sticker-on-paper contact-star-corner">
+
+                        <h3>Get in touch</h3>
+
+                        <ul>
+                            <li>
+                                <strong>Phone:</strong>
+                                <a href="tel:+33638913447">06.38.91.34.47 (+33)</a>
+                            </li>
+                            <li>
+                                <strong>Email:</strong>
+                                <a href="mailto:blanvilin.margaux.clg@gmail.com">blanvilin.margaux.clg@gmail.com</a>
+                            </li>
+                            <li>
+                                <strong>Location:</strong>
+                                Bordeaux, France
+                            </li>
+                            <li>
+                                <strong>Licence:</strong>
+                                B licence with personal car
+                            </li>
+                        </ul>
+
+                        <div class="social-links">
+                            <a href="https://www.linkedin.com/in/blanvilin-margaux-7a54b3242" target="_blank" rel="noopener noreferrer">
+                                LinkedIn
+                            </a>
+                            <a href="https://github.com/Margaux13b" target="_blank" rel="noopener noreferrer">
+                                GitHub
+                            </a>
+                        </div>
+
+                        <div class="download-wrapper">
+                            <a href="assets/cv-margaux.pdf" download="CV-Margaux-Blanvilin.pdf" class="download-btn">
+                                ⬇ Download resume
+                            </a>
+                            <img src="assets/img/heart.png" alt="" class="sticker-on-paper download-heart">
+                        </div>
+
+                        <p class="thank-you-badge">
+                            Thank you!
+                        </p>
+                    </aside>
+
+                    <form class="contact-form" action="#" method="POST">
+                        <div class="paper-tape card-tape"></div>
+
+                        <div class="form-group">
+                            <label for="contact-name">Your Name</label>
+                            <input type="text" id="contact-name" name="name" placeholder="John Doe" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contact-email">Your Email</label>
+                            <input type="email" id="contact-email" name="email" placeholder="john@example.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contact-message">Your Message</label>
+                            <textarea id="contact-message" name="message" rows="3" placeholder="Hi Margaux, let's talk about..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-btn">
+                            Send message
+                        </button>
+                    </form>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+</body>
+</html>
